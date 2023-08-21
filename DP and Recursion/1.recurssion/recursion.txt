@@ -1,0 +1,106 @@
+Recursion occupy more space in stack.
+   time complexity of loop and recursion is same but space complexity of loop is less
+   than recurcive function.
+
+Recursion are of 5 types:
+1.LINEAR Recursion
+        function that call itself one time
+        -> n+1 calls and n+1 activation record
+        -> time complexity o(n)
+        -> space complexity o(n)
+
+        i). Tail Recursion
+           ->fastest recursion as:
+           -> recurcive function at the end, no task is to performed during returning time
+           -> tail recursion can be easily converted to loops
+           ->complier perform tail call elimination
+           {
+               --------
+               --------
+               fun(x-1);
+           }
+
+        ii). Head Recursion
+           -> recurcive function written at the top of a block , all task are performed during returning time
+           -> difficult to be converted to loops but can be converted
+
+           {
+               fun(x-1);
+               --------
+               --------
+           }
+
+
+2. Tree Recursion
+    -> if a recurcive function calls itself more than 1 time
+    -> total calls made = 2^(n+1)-1
+    -> time complexity O(2^n)
+    -> space function is height of stack=n+1   O(n)
+           {
+               fun(x-1);
+               --------
+               fun(x-1);
+               -------
+               --------
+               fun(x-1);
+               --------
+           }
+3. Indirect Recursion
+   -> functions that indirectly call each other
+            void funcA(int a)
+           {
+               --------
+               funcB(a-1);
+               --------
+               --------
+           }
+           void funcB(int a)
+           {
+               --------
+               funcA(a-1);
+               --------
+               --------
+           }
+4. Nested Recursion
+           -> recurcive function inside a recurcive function
+           void func(int a)
+           {
+               --------
+               func(func(a-1));
+               --------
+               --------
+           }
+
+5.Excessive Recursion
+           ->function calling itself multiple times with same parameters(eg. in fibonachi)
+
+
+
+
+--> Recursion has 3 main section:
+
+    -> base condition
+    -> processing section (optional)
+    -> recursion call
+
+    -> base condition
+    -> recursion call
+    -> processing section (backtrack) (optional)
+
+
+Identify recursion:  . Identify bigger problem if it can be broken to smaller problem then it is recursive problem
+                     . find all ways
+                     . find min,max,best way
+
+
+
+                                                   TO WRITE ANY RECURSION:
+-> Try to represent every problem in terms of index
+-> do all stuffs on the index according to the problem statement
+   (Form recursion relation if needed)
+   (Draw recusive tree, see the flow of functions (order of function call and type of values returned)
+    Use recursive function call to move down in tree
+    Use loop to move horizontally in tree)
+-> count all ways   : add
+   count min        : min( of func )
+   count max        : max( of func )

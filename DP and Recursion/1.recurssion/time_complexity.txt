@@ -1,0 +1,5 @@
+1 < logn < n < nlog n < n^2 < n^3.......< 2^n < 3^n.....
+
+lower bound Ω 
+upper bound O
+tight bound θ        exact polynomia can be found.

@@ -1,0 +1,126 @@
+-> >> <<
+   . a>>n   == a/(pow (2,n) )
+   . a<<n   == a*(pow (2,n))
+
+-> add(x)
+     mask | (1<<x)
+
+-> remove(x)
+     mask ^ ~(1<<x)
+
+-> XOR   use to remove existing bit (5)
+
+    . a ^ a == 0
+
+    . xor between [l,r]
+      ( xor till (l-1) )^( xor till r )
+
+    . swap two number using xor
+      a=a^b;
+      b=a^b;   //(a^b)^b =>a
+      a=a^b    //(a^b)^a =>b
+
+    . xor of numbers from one to n
+      (it forms a loop of 4 size -> 1,n+1,0,n)
+      if(N%4==0 ) print(n)      (for n=4, N=1^2^3^4)
+      if(N%4==1 ) print(1)
+      if(N%4==2 ) print(n+1)
+      if(N%4==3 ) print(0)
+
+    . Find element occuring once when all other are present thrice
+      int one=0;
+        int two=0;
+        for(int i=0;i<N;i++)
+        {
+            one=~(two)&(one^arr[i]);
+            two=~(one)&(two^arr[i]);
+        }
+        return one;
+
+-> &
+
+   . largest power of two
+      int x = round(log2(n));
+
+   . check if a number is odd or even
+     if(n&1==1) print(odd)
+     if(n&1==0) print(even)
+
+   . set ith bit of a number
+     print((1<<i) | n)
+
+   . check if i th bit is set or not
+     if( ((1<<i)&n ==1 ) print(set)         1<<i => mask
+     if( ((1<<i)&n ==0 ) print(not set)
+
+   . unset i th bit of a number
+     print( ~(1<<i) & n)
+
+   . remove last set bit from right
+     print( n&(n-1) )
+
+   . check if a number is a power of 2
+     if( n&(n-1) ==0) print(yes)
+
+   . count number of set bits
+      unset right most bit til n!=0
+      int count=0;
+      while(n!=0)
+      {
+        n=(n&(n-1));
+        count++;
+      }
+      print(count);
+
+   . find the position of right most set bit
+      n=n^(n&(n-1));   //to get only the rightmost set bit
+      n=log2(n)+1;     //to get the position
+
+   . count number of set bits from 1 to n
+       int countSetBits(int n)
+       {
+          if(n<=0)  return 0;
+          if(n==1)  return 1;
+          int x=log2(n);
+          int highest2=1<<x;
+
+          //(2^(x-1))*x  //sum of bits of numbers less than highest power of two in n
+          int first= (1<<(x-1))*x;
+
+          //count biggest set bits from highest power of 2 to n
+          int second=n-(1<<x)+1;
+
+          //solve for for n-highest_power_of_two
+          int third=n-(1<<x);
+          return first+second+countSetBits(third);
+       }
+
+-> Cypher1:
+   cypher two numbers if their xor is given to you
+   (given : all numbers appear twice and any two number appear once)
+
+-> Cypher2:
+   given array, sum of two distinct numbers and xor of those two distinct numbers.
+   rest numbers are repeated two
+
+-> Xor of all subsets of numbers in an array -> 0 always
+
+-> number of missing element in sorted array upto ith index is:
+   arr[i]-1-i
+
+-> powerset algorithm  -> find all subsets of array elements
+   (n is size of array)
+
+    vector<vector<int>> subsets(vector<int>& nums) {
+
+          vector<vector<int>> ans;
+          int n=nums.size();
+          for(int i=0;i<(1<<n);i++){                         //for n elements we have 2^n number of subsets, so 1<<n => 2^n
+              vector<int> dummy;
+              for(int j=0;j<nums.size();j++){                //iterating complete array and inserting value to dummy vector only it that index(j) is set-bit in i ///algo
+                  if(i&(1<<j)) dummy.push_back(nums[j]);
+              }
+              ans.push_back(dummy);
+          }
+          return ans;
+    }

@@ -1,0 +1,24 @@
+Full Tree is formed in heap: so no skew tree is possible(except at height 1)
+
+Creation : O(nlogn)
+insertion: O(logn) for single element
+         : O(nlogn) for n elements
+deletion : O(logn) for single element
+         : O(nlogn) for n elements
+search   : O(n)  (need to pop all elements)
+
+
+
+in insertion: insert in the end then compare and replace with parent : move up : max heap
+in deletion: remove top element and replace it with last node of the complete binary tree
+           : compare the last node with child and replace
+
+heapify: create binary tree from an array then convert it to heap (max or min heap)
+       : start creating heap from last node to up : faster than normal heap creation
+       : creation time: O(n) (best time ) rest are same as above
+
+
+min heap : parent is small then child
+         : priority_queue<int,vector<int> ,greater<int>> pq;
+max heap : parent is large then child
+         : priority_queue<int> pq;

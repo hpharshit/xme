@@ -1,0 +1,150 @@
+
+->C(string is char array)            | C++(supports both string and char array separately)
+USE string.h for char aaray          | use string.h or cstring for char array 
+                                         and <string> for string
+char arr[n];                         |         string s;    //empty string  which is ""
+                                          in other language empty string shows compiler error
+
+-string is char array with '\0' here | string is also terminated by '\0' in C++
+                                     | string is a data type here  
+                                     | string is class and its name is object of that class
+
+->if assigning later then
+-char array requires to define size  |-string do not require to give size  
+                                     |size is assigned according to input
+    
+-operators can't work on array       |- operators can be applied on string
+  = , + , -    
+  except; char arr[5]="vngjn";                               
+-> accessing arr[index]  is fast     |-> accessing str[index] or 
+                                     | string_name.at(index) is slow 
+                                     
+->gets, puts  to take i\o            |->getline(cin , string_name)   //for string
+   scanf will not take multiple words| cin.getline(arr , size_of_string) // for char array
+                                     | or  cin.get(arr , size_of_string) // for char array
+                                        get donot read multiple lines
+                                        getline can read multiple lines
+
+ ->sizeof(arr)    for size of array   |-> str.size() ;or
+                                     |   str.length();
+                                     |   for size of string data type
+
+                CAN'T APPLY FUNCTIONS OF string.h ON string CLASS AND VICEVERSA
+ #include<string.h>
+ gets(arr);
+ puts(arr);
+ sizeof(str);// (no. of memory blocks allocated)*(size of data type)
+
+ strlen(s);//no. of characters excluding null
+ 
+ strcpy(s1,s2); //copy s2 to s1
+ strncpy(s1,s2,no_of_char_to_copy);
+ 
+ strcmp(s1,s2);  //compare
+ 
+ strcat(arr,arr1);  //add both arr and arr1
+ strncat(arr,arr1,lenght_to_add_from_left );
+
+ strrev(st);   //reverse the char array string
+ 
+ char s[]="harashit";
+ char s1[]="sh";  //substring of s
+ strstr(s,s1);   //will give substring "shit"
+ strchr(s,'a');  //will give substring from left side  "arashit"
+ strrchr(s,'a');  //will give substring from right "ashit"
+ ptrstr(s);    //prints string
+
+                                 FUNCTION OF STRING class
+                                 #include<string> has
+
+                                 string s4=s1+s2;      //concetenation
+                                 st2=st3;     all st3 is copied to st2
+
+                                 s.at(index_no);   //get char at index   //or
+                                 s[index];                    
+                                 s.front();//first char of string            
+                                 s.back();//last char of string            
+
+                                 get(cin,s);   //this takes enter so use
+                                 s.ignore();
+                                 getline(cin , s); //does'nt consider enter as input
+                                 
+                                 s.append(s1);//s1 is added to the end of s string 
+
+
+
+                                 s.size();//no.of char without \0
+                                 s.length();
+
+                                 s.assign("  ");//it is like s="   ";
+                                 s.insert(from_index,"ok");
+                                   //if s="hello"; let index=1 then through insert s="heokllo";
+                                 s.insert(from_index,"cdvhvcvd", lenght_of_text_to_insert);
+                                 
+                                 s.replace(starting_index , length_to_replace, "replace_text");
+
+                                 s.pushback('z');   //adds z to s string
+
+                                 s.popback();   //removes last character of string
+
+                                 s.swap(s2);    //s stores s2
+                                 
+                                 char st[];
+                                 s.copy(st,length_to_copy);      //if whole char array string is not copied then
+                                       //\0 will not be copied,    so add\0 from your side
+                                 
+                                 s.clear();
+
+                                 
+
+                                 s.resize(n);//size//length becomes n
+                                 
+                                 s.erase();  //erase complete strinf
+                                 s.erase(from_index, how_much_character_to_erase);
+                                 
+                                 s.find(""); //returns its starting index
+                                 s.find('char'); //returns its starting index of char
+                                 s.rfind("word_or_letter"); //reverse finding//returns ending index
+                                 s.find_first_of('char'); //returns its starting index of char from left
+                                 s.find_first_of('char',index); //returns starting index of char from left from 
+                                                                                         index mentioned
+                                 s.find_first_of("le"); //returns index of 'l' or 'e' which ever comes first from left 
+                                 s.find_last_of('char'); //returns its index of char  from right
+                                 
+                                 s.substr(starting_index);  //returns sunstring from index 
+                                 s.substr(starting_index, length_of_string); 
+                                                  //makes substring
+                                 
+                                 s.compare(s1);
+
+                                 string str="425";
+                                 long int x=strtol(str,NULL,base_); //base is 10 here
+
+                                 
+                                 string str="4.25";
+                                 float a=strltof(str,NULL);
+
+
+                                 strok()                                 
+
+
+
+                                  to_string(x);//x will be converted to string 
+                                  
+                                 if
+                                 string s="hello";
+                                 char str[20]; 
+                                 s_str(); //changes string to nul terminated char array
+
+
+
+                                 ITERATORS IN STRING:
+                                 string ::iterators it;  
+                                 'it' is like pointer    can apply pointer arithematic
+                                                                
+                                 1.forward ITERATORS
+                                    it=s.begin()
+                                    it=s.end()
+                                 2. reverse ITERATORS
+                                    it=s.rbegin();
+                                    it=s.rend();                                                     

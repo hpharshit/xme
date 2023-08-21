@@ -1,0 +1,2 @@
+ascii codes:         1byte
+unicode :            2 byte, represented in hexadecimal

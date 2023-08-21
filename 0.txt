@@ -1,0 +1,14 @@
+Logical ds are implemented using any of the Physical ds.
+Logical ds tells how to perform operations on physical ds or stored data.
+
+Logical ds are mainly of 3 types:
+1. Linear DS
+   i). stack        - works on LIFO
+  ii). queues       - works on FIFO
+
+2. Non Linear DS
+   i). trees
+  ii). graph
+
+3. may be Linear or may be Tabular DS
+  i). hash table

@@ -1,0 +1,45 @@
+INTRODUCTION:
+-array is collection of similar type of data
+-size of  array is fixed and size can't be changed once initialized
+-values can be changed. 
+int a=22;      is scalar variable
+int a[5];      is vector variable
+
+Initialization basics:
+1. int arr[4];      all store garbage values
+2. int arr[4]={1};   arr[0] stores 1 ,rest all store garbage values
+3. int *p=new int[4];      all store garbage values
+4. int *p=new int[4]; 
+    p[0]=45;     p[0] stors 45, but rest all store garbage values
+
+cout<<arr[4];    == cout<<4[arr];
+_______________________________________________________________________________________
+->size of static array should be constant and not variable
+    int n;
+    int arr[n];       //here size is variable         //hence it is run time error
+    scanf("%d",&n);
+    printf("%d",sizeof(arr));
+
+    int n;
+    scanf("%d",&n);
+    int arr[n];         //here size is constant hence no error
+    printf("%d",sizeof(arr));
+
+->size of dynamic array can be constant or variable  ; if variable then size is given at run time
+    int n;
+    int *p=new int[n];   //possible as it is dynamic allocation
+    cin>>n;
+_______________________________________________________________________________________________
+int arr[5];     static array as size is fixed        size is decided at compile time
+                                                     memory is given during run time
+________________________________________________________________________________________________
+
+  size is the no. of memory blocks allocated
+  spaces allocated to array = sizeof(arr);    is (size allocated)*(size of data type)
+
+  length is the no. of elements in that array
+ int *p=new int[5];       //size=5       //space is 5*4=20bites  //length is 0 as no element is present in it
+     p[0]=45;             //size=5       //space is 5*4=20bites  //length is 1 as only 1 element is present in it
+________________________________________________________________________________________________________________
+  for arr[a][b][c][d]
+  &arr[i1][i2][i3][i4]=arr+(i1*b*c*d+ i2*c*d + i3*d +i4)*size of data type          row major

@@ -1,0 +1,100 @@
+Their are 3 methods to implement DP after writing recursion(top down):
+
+*******************************
+-> Tabulation is completely opposite of recursion  (if recursion(memoization) goes from n-1 to 0 then Tabulation(dp) will go from 0 to n-1 )
+*******************************
+
+
+1. Memoization (top down) using recursion
+   {
+      4 steps:
+      -> int dp[n+1];
+      -> check if problem has been solved previously or not
+         if(dp[i]!=-1)
+         {
+            return dp[i];
+         }
+         else
+         {
+            -> store in dp array  dp[i]=dp[i-1]+dp[i-2];
+         }
+      -> return dp[n];
+   }
+   -> go form bigger value to small value and calculate it
+   -> recursion overhead
+
+
+2. Tabulation (bottom up)   (converting Memoization to Tabulation(dp) (avoiding recursive calls))
+   {
+      4 steps:
+      -> int dp[n+1];
+      -> dp[0]=0;
+         dp[1]=1;
+         for(int i=2;i<=n;i++)
+         {
+          ->  dp[i]=dp[i-1]+dp[i-2];
+         }
+      -> return dp[n];
+   }
+   -> calculate small values and integrate to the top
+   -> no recursion overhead
+
+
+3. Space-Optimization (greedy)
+   -> use prev,curr index pointer
+
+
+//to initialize dp array
+int dp[n+1];
+vector<int>dp(n+1);
+memset(dp,-1,sizeof(dp));
+
+-> 3 steps:
+       express dp-matrix in terms of index i    int dp[n+1];
+       do all stuffs on the index
+       sum/max/min
+
+-> if in base condition of string matching we have negative index then: increase every index by by one:
+   solve(word1,n1-1,word2,n2-1);   => solve(word1,n1,word2,n2);
+   if(i<0) return j+1;  => if(i==0) return j;  //one based indexing
+   if(j<0) return i+1;  => if(j==0) return i;  //one based indexing
+
+-> to handel large bigger index => vector<int> dp(n+2,0);  // stock buy-sell
+
+1.) fibonaci
+2.) ways to climb stairs
+   (min ways to climb stairs, min rounds to complete all tasks, min energy required to reach end -> frog jump, Frog Jump with K Distance)
+3.) Maximum Sum of Non-Adjacent Elements -> (stickler theif, house robber1, house robber2 ,Ninja's training)
+4.) Best Time to Buy and Sell Stock III, Best Time to Buy and Sell Stock IV
+5.) Dp on Grids/2D Matrix:
+    (count paths,path sum, count unique paths, count paths with obstacles, stocks buy sell, min path Sum, max path Sum)
+    (triangle problem, min/max falling path Sum : variable points(last row) to fixed point(top row)
+6.) 3D DP:
+    ( Cheeery pickup I and Cheeery pickup II -> 2 start point)
+    -> 3 steps:
+       express dp-matrix in terms of (i,j) : (row,col)
+       do all stuffs on this matrix
+       sum/max/min
+    -> Memoization to Tabulation:
+       declare base case
+       write all index in loop
+       copy recurrence relation and write
+    -> If we have previous row and previous column than we can space optimize it.
+
+
+7.) DP on subsets/subsequences: ordered continuous or non-continuous list
+    (array,stock,lcs,lis)
+    -> 3 steps:
+       express dp-matrix in terms of (index,target)
+       write base case
+       do all stuffs on this matrix : take, not take
+       sum/max/min
+
+8) MCM //partition dp
+   -> when we are told to perform actions in a particular way/pattern then we use partition dp
+      eg: putting parenthesis on 1+2*3 => (1+2)*3 or 1+(2*3)
+   -> Rules:
+      1 start with entire block/array (i as start index, j as end index)  (i,j gives the block where the minimum operations required)
+      2 base case
+      3 run a loop to try all partitions
+      4 return the best 2 partitons

@@ -1,0 +1,26 @@
+                      for queue:  insertion from rear end, deletion from front end
+
+using single pointer:
+delete: O(1)  dequeue
+insert: O(n)  enqueue
+
+using 2 pointers:
+use front pointer to delete the element 
+use rear pointer to insert the element
+initially both point on index -1; this implies that the queue is empty
+
+empty condition is rear==front
+full condition is rear=size-1
+some elements condition is rear>front
+
+
+                         Drawback of queue:
+
+can't reuse the space of the deleted element.
+
+                         Solution to the Drawback:
+1. resetting index pointers(rear and front) to -1 when ever rear ==front but this will only work for a certain condition when rear==front; so use circular queue to reuse the space more efficiently;
+
+2. circular queue
+  front+1=rear ==full
+  front==rear  ==empty

@@ -1,0 +1,13 @@
+ADT is abstract data type of stack that shows data representation and operations that can be performed on them
+
+-> data:  
+       space for storing data
+       top pointer(pointing to last element)
+
+-> operations 
+      push(x)
+      pop()
+      peek(index)            //value at index from lifo // i.e index from the last
+      stacktop()          //knowing the top most value i.e the last value
+      isempty()
+      isfull()

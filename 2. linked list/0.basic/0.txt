@@ -1,0 +1,21 @@
+These are called physical as the determine how the memory is allocated or organised
+in memory.
+Physical ds will actually store the data.
+
+Physical Ds are of mainly 2 types:
+we can have more physical ds using combination of array and linked list
+1. array
+  ->if length of list is known or fixed then use array
+  ->diretly supported by prog. languages.
+  ->collection of contigious memory loctions
+  ->fixed size     (size of array is static ) can't be changed
+  ->can be created in stack or heap
+
+2. linked list
+  -> created in heap only
+  -> the pointer created in stack to point the node in heap is called HEAD pointer
+  -> completely dynamic ds
+  -> it is collection of nodes
+     (each node has data and link to next node)
+  -> length of nodes and be changed dynamically    
+   
